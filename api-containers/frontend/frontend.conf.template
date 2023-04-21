@@ -15,32 +15,32 @@ server {
     }
 
     location /api/adjectives {
-        proxy_pass http://${PREFIX}-adjectives.${NAMESPACE};
+        proxy_pass http://adjectives.${NAMESPACE};
         proxy_ssl_server_name on;
     }
 
     location /api/animals {
-        proxy_pass http://${PREFIX}-animals.${NAMESPACE};
+        proxy_pass http://animals.${NAMESPACE};
         proxy_ssl_server_name on;
     }
 
     location /api/colors {
-        proxy_pass http://${PREFIX}-colors.${NAMESPACE};
+        proxy_pass http://colors.${NAMESPACE};
         proxy_ssl_server_name on;
     }
 
     location /api/locations {
-        proxy_pass http://${PREFIX}-locations.${NAMESPACE};
+        proxy_pass http://locations.${NAMESPACE};
         proxy_ssl_server_name on;
     }
 
     location /api/backgrounds/ {
-        proxy_pass http://${PREFIX}-backgrounds.${NAMESPACE}/;
+        proxy_pass http://backgrounds.${NAMESPACE}/;
         proxy_ssl_server_name on;
     }
     
     location /api/sentence {
-        proxy_pass http://${PREFIX}-generator.${NAMESPACE};
+        proxy_pass http://sentence.${NAMESPACE};
         proxy_ssl_server_name on;
     }
 

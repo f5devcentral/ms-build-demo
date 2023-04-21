@@ -191,7 +191,7 @@ spec:
     spec:
       containers:
         - name: locations
-          image: f5demosprivate.azurecr.io/ms-build-demo/locations:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/locations
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -235,7 +235,7 @@ spec:
     spec:
       containers:
         - name: backgrounds
-          image: f5demosprivate.azurecr.io/ms-build-demo/backgrounds:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/backgrounds
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

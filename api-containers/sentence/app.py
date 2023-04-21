@@ -247,8 +247,11 @@ def getBaseURL(attribute):
     attrURL = BASE_URL_DICT.get(attribute)
     if attrURL == "":
         logging.info(
-            "No URL for service %s provided, defaulting to http://<prefix>-<attribute>.<namespace>", attribute)
-        return "http://%s-%s.%s" % (PREFIX, attribute, NAMESPACE)
+            "No URL for service %s provided.", attribute)
+        if PREFIX == "":
+            return "http://%s.%s" % (attribute, NAMESPACE)
+        else:
+            return "http://%s-%s.%s" % (PREFIX, attribute, NAMESPACE)
     return attrURL
 
 

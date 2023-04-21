@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: generator
+  name: sentence
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: generator
+      app: sentence
   template:
     metadata:
       labels:
-        app: generator
+        app: sentence
     spec:
       containers:
-        - name: generator
-          image: f5demosprivate.azurecr.io/ms-build-demo/generator
+        - name: sentence
+          image: f5demosprivate.azurecr.io/ms-build-demo/sentence
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -30,13 +30,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: generator
+  name: sentence
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: generator
+    app: sentence
   ports:
     - name: http
       port: 80

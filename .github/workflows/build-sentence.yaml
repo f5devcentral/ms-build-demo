@@ -1,9 +1,9 @@
-name: build container generator
+name: build container sentence
       
 on:
   push:
     paths:
-      - api-containers/generator/**
+      - api-containers/sentence/**
     branches:
       - "main"
     tags:
@@ -13,8 +13,8 @@ on:
       - "main"
 
 env:
-  CONTAINER_NAME: generator
-  BUILD_CONTEXT: ./api-containers/generator/
+  CONTAINER_NAME: sentence
+  BUILD_CONTEXT: ./api-containers/sentence/
 
 jobs:
   docker:

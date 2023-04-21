@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-generator
+  name: generator
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-generator
+      app: generator
   template:
     metadata:
       labels:
-        app: sentence-generator
+        app: generator
     spec:
       containers:
         - name: generator
-          image: matt262810/sentence-generator:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/generator
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -24,17 +24,19 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-generator
+  name: generator
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-generator
+    app: generator
   ports:
     - name: http
       port: 80
@@ -43,21 +45,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-colors
+  name: colors
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-colors
+      app: colors
   template:
     metadata:
       labels:
-        app: sentence-colors
+        app: colors
     spec:
       containers:
         - name: colors
-          image: matt262810/sentence-colors:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/colors
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -66,17 +68,19 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-colors
+  name: colors
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-colors
+    app: colors
   ports:
     - name: http
       port: 80
@@ -85,21 +89,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-adjectives
+  name: adjectives
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-adjectives
+      app: adjectives
   template:
     metadata:
       labels:
-        app: sentence-adjectives
+        app: adjectives
     spec:
       containers:
         - name: adjectives
-          image: matt262810/sentence-adjectives:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/adjectives
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -108,17 +112,19 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-adjectives
+  name: adjectives
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-adjectives
+    app: adjectives
   ports:
     - name: http
       port: 80
@@ -127,21 +133,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-animals
+  name: animals
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-animals
+      app: animals
   template:
     metadata:
       labels:
-        app: sentence-animals
+        app: animals
     spec:
       containers:
         - name: animals
-          image: matt262810/sentence-animals:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/animals
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -150,17 +156,19 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-animals
+  name: animals
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-animals
+    app: animals
   ports:
     - name: http
       port: 80
@@ -169,21 +177,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-locations
+  name: locations
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-locations
+      app: locations
   template:
     metadata:
       labels:
-        app: sentence-locations
+        app: locations
     spec:
       containers:
         - name: locations
-          image: matt262810/sentence-locations:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/locations:v2.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -192,17 +200,19 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-locations
+  name: locations
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-locations
+    app: locations
   ports:
     - name: http
       port: 80
@@ -211,21 +221,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sentence-backgrounds
+  name: backgrounds
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   selector:
     matchLabels:
-      app: sentence-backgrounds
+      app: backgrounds
   template:
     metadata:
       labels:
-        app: sentence-backgrounds
+        app: backgrounds
     spec:
       containers:
         - name: backgrounds
-          image: matt262810/sentence-backgrounds:v2.0
+          image: f5demosprivate.azurecr.io/ms-build-demo/backgrounds:v2.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -234,17 +244,59 @@ spec:
               value: "sentence"
             - name: NAMESPACE
               value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentence-backgrounds
+  name: backgrounds
   annotations:
     ves.io/app-type: ms-build-demo
 spec:
   type: ClusterIP
   selector:
-    app: sentence-backgrounds
+    app: backgrounds
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend-nginx
+          image: f5demosprivate.azurecr.io/ms-build-demo/frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PREFIX
+              value: "sentence"
+            - name: NAMESPACE
+              value: "ms-build-demo"
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
   ports:
     - name: http
       port: 80

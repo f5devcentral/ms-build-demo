@@ -1,4 +1,4 @@
-name: build container config-seed
+name: build container frontend
       
 on:
   push:

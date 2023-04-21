@@ -1,0 +1,504 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Sentence Generator",
+    "description": "list of attributes",
+    "version": "4.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "generator"
+        ],
+        "description": "generate composed name",
+        "operationId": "generateName",
+        "responses": {
+          "200": {
+            "description": "a randomly composed name"
+          }
+        }
+      }
+    },
+    "/api/sentence": {
+      "get": {
+        "tags": [
+          "generator"
+        ],
+        "description": "generate composed name from FrontEnd",
+        "operationId": "generateNameFront",
+        "responses": {
+          "200": {
+            "description": "a randomly composed name"
+          }
+        }
+      }
+    },
+    "/api/backgrounds": {
+      "get": {
+        "tags": [
+          "generator"
+        ],
+        "description": "generate backgrounds images from FrontEnd",
+        "operationId": "generateBackground",
+        "responses": {
+          "200": {
+            "description": "a randomly composed name"
+          }
+        }
+      }
+    },
+    "/api/adjectives": {
+      "get": {
+        "tags": [
+          "adjectives"
+        ],
+        "description": "List all adjectives",
+        "operationId": "listAdjectives",
+        "responses": {
+          "200": {
+            "description": "a list of adjectives with their index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adjectives"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "adjectives"
+        ],
+        "description": "create an adjective",
+        "operationId": "createAdjective",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_adjectives_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"name\":\"calm\"}"
+                },
+                "1": {
+                  "value": "{\"id\":2}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "adjective created",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "adjectives"
+        ],
+        "description": "delete an adjective",
+        "operationId": "deleteAdjective",
+        "responses": {
+          "404": {
+            "description": "Delete an Adjective",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/adjectives/{id}": {
+      "get": {
+        "tags": [
+          "adjectives"
+        ],
+        "description": "get a specific adjective",
+        "operationId": "showAdjectiveById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the adjective to retrieve",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adjective"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/animals": {
+      "get": {
+        "tags": [
+          "animals"
+        ],
+        "description": "List all animals",
+        "operationId": "listAnimals",
+        "responses": {
+          "200": {
+            "description": "a list of animals with their index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animals"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "animals"
+        ],
+        "description": "create an animal",
+        "operationId": "createAnimal",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_animals_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"name\":\"cat\"}"
+                },
+                "1": {
+                  "value": "{\"id\":2}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "animal created",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "animals"
+        ],
+        "description": "delete an adjective",
+        "operationId": "deleteAnimal",
+        "responses": {
+          "404": {
+            "description": "Delete an Adjective",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/animals/{id}": {
+      "get": {
+        "tags": [
+          "animals"
+        ],
+        "description": "get a specific adjective",
+        "operationId": "showAnimalsById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the animal to retrieve",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/locations": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "description": "List all locations",
+        "operationId": "listlocations",
+        "responses": {
+          "200": {
+            "description": "a list of locations with their index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Locations"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "locations"
+        ],
+        "description": "create a location",
+        "operationId": "createLocation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_locations_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"name\":\"lake\",\"coordinates\":[-142.28261413,53.28261413]}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "location created",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "locations"
+        ],
+        "description": "delete a location",
+        "operationId": "deleteLocation",
+        "responses": {
+          "404": {
+            "description": "Delete a Location",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/locations/{id}": {
+      "get": {
+        "tags": [
+          "locations"
+        ],
+        "description": "get a specific location",
+        "operationId": "showLocationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the location to retrieve",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Adjective": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Adjectives": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Adjective"
+        }
+      },
+      "Animal": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Animals": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Animal"
+        }
+      },
+      "Location": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "Locations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Location"
+        }
+      },
+      "api_adjectives_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      },
+      "api_animals_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      },
+      "api_locations_body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      }
+    }
+  }
+}

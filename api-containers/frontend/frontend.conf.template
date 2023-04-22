@@ -14,26 +14,6 @@ server {
         set $ves_io_sitename ${VES_IO_SITENAME};
     }
 
-    location /api/adjectives {
-        proxy_pass http://adjectives.${NAMESPACE};
-        proxy_ssl_server_name on;
-    }
-
-    location /api/animals {
-        proxy_pass http://animals.${NAMESPACE};
-        proxy_ssl_server_name on;
-    }
-
-    location /api/colors {
-        proxy_pass http://colors.${NAMESPACE};
-        proxy_ssl_server_name on;
-    }
-
-    location /api/locations {
-        proxy_pass http://locations.${NAMESPACE};
-        proxy_ssl_server_name on;
-    }
-
     location /api/backgrounds/ {
         proxy_pass http://backgrounds.${NAMESPACE}/;
         proxy_ssl_server_name on;

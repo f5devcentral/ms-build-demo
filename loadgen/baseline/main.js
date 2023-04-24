@@ -2,6 +2,7 @@ import { sleep, check } from "k6";
 import http from 'k6/http';
 import { SharedArray } from 'k6/data';
 import { addRandAgent } from './helpers.js';
+import { randomString } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 export const options = {
     stages: [
@@ -13,6 +14,8 @@ const data = new SharedArray('data', function () {
   const f = JSON.parse(open('./data.json'));
   return f;
 });
+
+const cookieValue = `%7B%22diA%22%3A%22${randomString(8)}`;
 
 function getRandomNum(min, max) {
     return Math.random() * (max - min) + min;
@@ -26,6 +29,8 @@ function checkRes(res) {
 
 export default function () {
   const base = `${__ENV.TARGET_URL}`
+  const jar = http.cookieJar();
+  jar.set(base, '_imp_apg_r_', cookieValue);
   const randomPath = data[Math.floor(Math.random() * data.length)];
   const url = base + randomPath.path
   let res = http.get(url, addRandAgent());

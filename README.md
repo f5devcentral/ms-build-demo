@@ -35,6 +35,9 @@ Here is a complete list of XC objects used in this example:
 ## Deploy
  <TBD>
 
+This repo builds all necessary container images with [Github Actions](./.github/workflows/) and pushes to an [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry).
+The XC Customer Edge, like a standard k8s cluster, uses an [image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) to deploy workloads.
+
 ```shell
 kubectl create secret generic regcred \
     --from-file=.dockerconfigjson=docker-auth.json \

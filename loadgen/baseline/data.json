@@ -1,0 +1,91 @@
+[
+    {
+      "name": "adjectives",
+      "path": "/api/sentence/adjectives",
+      "post": true,
+      "values": [
+        {
+            "id": 1,
+            "name": "kind"
+        },
+        {
+                "id": 2,
+                "name": "proud"
+        },
+        {
+                "id": 3,
+                "name": "calm"
+        }
+	]
+    },
+    {
+      "name": "animals",
+      "path": "/api/sentence/animals",
+      "post": true,
+      "values": [
+        {
+          "id": 1,
+          "name": "lion"
+        },
+        {
+          "id": 2,
+          "name": "whale"
+        },
+        {
+          "id": 3,
+          "name": "mouse"
+        }
+      ]
+    },
+    {
+      "name": "colors",
+      "path": "/api/sentence/colors",
+      "post": true,
+      "values": [
+        {
+          "id": 1,
+          "name": "red"
+        },
+        {
+          "id": 2,
+          "name": "blue"
+        },
+        {
+          "id": 3,
+          "name": "green"
+        },
+        {
+          "name": "black",
+          "id": 4
+        },
+        {
+          "name": "yellow",
+          "id": 5
+        }
+      ]
+    },
+    {
+      "name": "locations",
+      "path": "/api/sentence/locations",
+      "post": true,
+      "values": [
+        {
+            "id": 1,
+            "name": "valley"
+        },
+        {
+            "id": 2,
+            "name": "park"
+        },
+        {
+            "id": 3,
+            "name": "mountain"
+        }
+        ]
+    },
+    {
+      "name": "sentence",
+      "path": "/api/sentence",
+      "post": false
+    }
+  ]

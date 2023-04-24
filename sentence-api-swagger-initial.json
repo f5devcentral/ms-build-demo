@@ -53,7 +53,7 @@
         }
       }
     },
-    "/api/adjectives": {
+    "/api/sentence/adjecitves": {
       "get": {
         "tags": [
           "adjectives"
@@ -131,7 +131,7 @@
         }
       }
     },
-    "/api/adjectives/{id}": {
+    "/api/sentence/adjecitves/{id}": {
       "get": {
         "tags": [
           "adjectives"
@@ -165,7 +165,7 @@
         }
       }
     },
-    "/api/animals": {
+    "/api/sentence/animals": {
       "get": {
         "tags": [
           "animals"
@@ -243,7 +243,7 @@
         }
       }
     },
-    "/api/animals/{id}": {
+    "/api/sentence/animals/{id}": {
       "get": {
         "tags": [
           "animals"
@@ -277,7 +277,7 @@
         }
       }
     },
-    "/api/locations": {
+    "/api/sentence/locations": {
       "get": {
         "tags": [
           "locations"
@@ -352,7 +352,7 @@
         }
       }
     },
-    "/api/locations/{id}": {
+    "/api/sentence/locations/{id}": {
       "get": {
         "tags": [
           "locations"

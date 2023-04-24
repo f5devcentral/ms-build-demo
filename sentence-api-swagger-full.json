@@ -53,7 +53,7 @@
         }
       }
     },
-    "/api/colors": {
+    "/api/sentence/colors": {
       "get": {
         "tags": [
           "colors"
@@ -131,7 +131,7 @@
         }
       }
     },
-    "/colors/{id}": {
+    "/api/sentence/colors/{id}": {
       "get": {
         "tags": [
           "colors"
@@ -165,7 +165,7 @@
         }
       }
     },
-    "/api/adjectives": {
+    "/api/sentence/ajectives": {
       "get": {
         "tags": [
           "adjectives"
@@ -243,7 +243,7 @@
         }
       }
     },
-    "/api/adjectives/{id}": {
+    "/api/sentence/ajectives/{id}": {
       "get": {
         "tags": [
           "adjectives"
@@ -277,7 +277,7 @@
         }
       }
     },
-    "/api/animals": {
+    "/api/sentence/animals": {
       "get": {
         "tags": [
           "animals"
@@ -355,7 +355,7 @@
         }
       }
     },
-    "/api/animals/{id}": {
+    "/api/sentence/animals/{id}": {
       "get": {
         "tags": [
           "animals"
@@ -389,7 +389,7 @@
         }
       }
     },
-    "/api/locations": {
+    "/api/sentence/locations": {
       "get": {
         "tags": [
           "locations"
@@ -464,7 +464,7 @@
         }
       }
     },
-    "/api/locations/{id}": {
+    "/api/sentence/locations/{id}": {
       "get": {
         "tags": [
           "locations"

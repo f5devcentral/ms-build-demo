@@ -12,14 +12,14 @@ The app includes a [web frontend](./api-containers/frontend/) and a small number
 The [sentence generator](./api-containers/sentence/) calls secondary microservices to generate a small unique sent containing an [adjective](./api-containers/adjectives), [animals](./api-containers/animals/), [colors](./api-containers/colors/), and [locations](./api-containers/locations/).
 
 ### API Service Graph
-<img src="./images/sentence-api-diagram.png" width=50% height=50%>
+<img src="./images/sentence-api-diagram.png" width=100% height=100%>
 
 
 ## Distributed Cloud Infrastructure
-F5 Distributed Cloud allows application services to be applied to apps hosted in many different ways -- standard compute, K8s clusters including CSP distros like AKS, or on XC AppStack.
-In most cases, an XC nodes simply needs to "discover" the service via DNS, Consul, or via the kube api. 
+F5 Distributed Cloud allows application services to be applied to apps hosted in many different ways -- standard compute, K8s clusters including CSP distros like AKS, or on XC Customer Edge.
+In most cases, an XC nodes simply needs to "discover" the workload via DNS, Consul, or via the kube api. 
 
-This demo uses an XC AppStack cluster running in Azure. Deployment of XC Customer Edges [can be performed and automated](https://docs.cloud.f5.com/docs/how-to/site-management) through the F5 Distributed Cloud Console.
+This demo uses an XC Customer Edge running in Azure. Deployment of XC Customer Edges [can be performed and automated](https://docs.cloud.f5.com/docs/how-to/site-management) through the F5 Distributed Cloud Console.
 
 ### XC Object Punchlist
 Here is a complete list of XC objects used in this example:

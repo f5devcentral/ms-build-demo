@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sentence-loadgen-baseline
+spec:
+  schedule: "*/6 * * * *"
+  concurrencyPolicy: Replace
+  suspend: false
+  jobTemplate:
+    spec:
+      template:
+        spec:
+        metadata:
+          annotations:
+            ves.io/virtual-sites: ms-build-loadgen-vs
+          containers:
+            - name: loadgen-baseline
+              image: f5demosprivate.azurecr.io/ms-build-demo/sentence-loadgen-baseline
+              imagePullPolicy: Always
+              env:
+                - name: DURATION
+                  value: 5m
+                - name: TARGET_URL
+                  value: https://ms-build-sentence.sales-demo.f5demos.com
+          imagePullSecrets:
+          - name: regcred
+          restartPolicy: OnFailure
+          terminationGracePeriodSeconds: 30
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1

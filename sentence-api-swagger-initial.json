@@ -53,7 +53,7 @@
         }
       }
     },
-    "/api/sentence/adjecitves": {
+    "/api/sentence/adjectives": {
       "get": {
         "tags": [
           "adjectives"
@@ -131,7 +131,7 @@
         }
       }
     },
-    "/api/sentence/adjecitves/{id}": {
+    "/api/sentence/adjectives/{id}": {
       "get": {
         "tags": [
           "adjectives"

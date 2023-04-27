@@ -121,14 +121,6 @@ def add_env(response):
 
 
 def get_words(attribute):
-    # function to get all entries from a service.
-    # Checks the Redis Cache first, if miss -
-    # tries to reach the backend service and then updates the cache with new value
-
-    # try:
-    #     baseURL = getBaseURL(attribute)
-    # except Exception:
-    #     return []
     baseURL = getBaseURL(attribute)
     url = baseURL + "/" + attribute
 
@@ -200,9 +192,6 @@ def get_word(attribute, index=None, query=None):
 
 
 def post_word(attribute, value):
-    # Post a value to specified service, checks if entry already exists
-    # If sucessful, resets the cache fo that service
-
     try:
         baseURL = getBaseURL(attribute)
     except Exception:
@@ -276,7 +265,5 @@ def deleteFromCache(key):
     logging.info("Deleted %s from cache", key)
 
 
-# A method that runs the application server.
 if __name__ == "__main__":
-    # Threaded option to enable multiple instances for multiple user access support
     generator.run(debug=False, host='0.0.0.0', threaded=True, port=8080)
